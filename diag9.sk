@@ -1,0 +1,127 @@
+% Basic points, vectors
+def o (0,0,0)
+def dx [1,0,0]
+def dy [0,1,0]
+def dz [0,0,1]
+
+% vectors in the directions of monomials x, y, z
+def u [1,0]
+def v [0.5,0.866]
+
+% remaining vectors in the simplex
+def vu (1/|([u]-[v])|)*([u]-[v])
+
+% vectors in the direction away from the center
+% of the simplex
+def offo (1/|(-[u]-[v])|)*(-[u]-[v])
+def offv (1/|([v]-[vu])|)*([v]-[vu])
+def offu (1/|([u]+[vu])|)*([u]+[vu])
+
+% Define a simplex of lines
+def simplexlines {
+  def l1 (o)+[u]
+  def l2 (o)+[v]
+  line(o)(l1)(l2)(o)
+}
+def uline {
+  def l1 (o)
+  def l2 (o)+[u]
+  line(l1)(l2)
+}
+def vline {
+  def l1 (o)
+  def l2 (o)+[v]
+  line(l1)(l2)
+}
+def bsimplexlines {
+  def l1 (o)+[u]
+  def l2 (o)+[v]
+  line[style=ultra thick](o)(l1)(l2)(o)
+}
+def buline {
+  def l1 (o)
+  def l2 (o)+[u]
+  line[style=ultra thick](l1)(l2)
+}
+def bvline {
+  def l1 (o)
+  def l2 (o)+[v]
+  line[style=ultra thick](l1)(l2)
+}
+
+% Define the circles
+def circle_size 0.25
+def circle_segs 20
+def circle_lift 0.1
+def circle {
+  def pt (o)-circle_size*[dx]+circle_lift*[dz]
+  sweep { circle_segs<>,
+          rotate(360 / circle_segs, (o)+circle_lift*[dz], [dz]) }
+    (pt)
+  special |\path #1 node {$P$};|(o)
+}
+def darkcircle {
+  def pt (o)-circle_size*[dx]+circle_lift*[dz]
+  sweep [fill=lightgray] { circle_segs<>,
+	  rotate(360 / circle_segs, (o)+circle_lift*[dz], [dz]) }
+    (pt)
+  special |\path #1 node {$N$};|(o)
+}
+
+def bcircle {
+  def pt (o)-circle_size*[dx]+circle_lift*[dz]
+  sweep [style=ultra thick] { circle_segs<>,
+          rotate(360 / circle_segs, (o)+circle_lift*[dz], [dz]) }
+    (pt)
+  special |\path #1 node {$P$};|(o)
+}
+def bdarkcircle {
+  def pt (o)-circle_size*[dx]+circle_lift*[dz]
+  sweep [style=ultra thick, fill=lightgray,] { circle_segs<>,
+	  rotate(360 / circle_segs, (o)+circle_lift*[dz], [dz]) }
+    (pt)
+  special |\path #1 node {$N$};|(o)
+}
+
+% define a node
+def node  {
+   def nodeoff circle_size
+   def p1 (o)+nodeoff*[offo]
+   def p2 (o)-[u]+nodeoff*[offu]
+   def p3 (o)-[v]+nodeoff*[offv]
+   polygon [fill=lightgray, fill opacity=0.5, draw opacity=0.0] (p1)(p2)(p3)
+}
+
+% Let us draw us a diagram
+put {
+  rotate(60, [dz]) then
+  scale(1.1)
+}
+{
+ % lines in the diagram
+ {simplexlines}
+ put { translate([u]) } {simplexlines}
+ put { translate([v]) } {simplexlines}
+
+ % draw the circles
+ {circle}
+ put { translate([u]) } {darkcircle}
+ put { translate([v]) } {darkcircle}
+
+ put { translate(2*[u]) } {circle}
+ put { translate([u]+[v]) } {darkcircle}
+ put { translate(2*[v]) } {circle}
+
+ % draw the nodes
+ %{node}
+ %put { translate(3*[u]) } {node}
+ %put { translate(3*[v]) } {node}
+ %put { translate([u]+[v]) } {node}
+}
+
+
+% Use tikz, pgf for drawing
+global {
+  language tikz
+}
+

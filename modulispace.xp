@@ -1,0 +1,33 @@
+/* slightly modified sample from epix samples gallery */
+#include "epix.h"
+using namespace ePiX;
+
+// gather references to integrand
+P f(double t)
+{
+  return P(t*t+2*t+1,t*(t+1)*(t+2));
+}
+
+int main()
+{
+  picture(P(-0.1,-0.1), P(1.1,1.1), "2x2in");
+
+  begin();
+
+  fill(Black(0.3));
+  triangle (P(0,0), P(1,0), P(1,1));
+
+  nofill();
+
+  label(P(1,1), P(3,3), "Identity ($N=2$)", tr);
+  label(P(0,0), P(-3,-3), "$H_{2,2}$ ($N=3$)", bl);
+  label(P(1,0), P(3,-3), "Whitney ($N=3$)", br);
+  label(P(0.5,0), P(0,-3), "$N=4$", b);
+  label(P(1,0.5), P(3,0), "$N=4$", r);
+  label(P(0.5,0.5), P(3,3), "$N=5$", tl);
+  label(P(0.7,0.3), P(0,0), "$N=5$", c);
+
+  tikz_format();
+  end();
+}
+

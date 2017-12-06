@@ -1,0 +1,25 @@
+%% Generated from modulispace.xp on Tue May 11 14:49:01 CDT 2010 by
+%% ePiX-1.2.6
+%% 
+%%   Cartesian bounding box: [-0.1,1.1] x [-0.1,1.1]
+%%   Actual size: 2 x 2in
+%%   Figure offset: left by 0in, down by 0in
+%% 
+%% usepackages tikz
+%% 
+\xdefinecolor{rgb_000000}{rgb}{0,0,0}%
+\xdefinecolor{rgb_b2b2b2}{rgb}{0.698039,0.698039,0.698039}%
+\begin{tikzpicture}
+\pgfsetlinewidth{0.4pt}
+\useasboundingbox (0in,0in) rectangle (2in,2in);
+\pgfsetfillcolor{rgb_b2b2b2}
+\draw [fill](0.166667in,0.166667in)--(1.83333in,0.166667in)--
+  (1.83333in,1.83333in)--(0.166667in,0.166667in)--cycle;
+\pgftext[at={\pgfpoint{1.87484in}{1.87484in}}] {\makebox(0,0)[bl]{\hbox{\color{rgb_000000}Identity ($N=2$)}}}
+\pgftext[at={\pgfpoint{0.125156in}{0.125156in}}] {\makebox(0,0)[tr]{\hbox{\color{rgb_000000}$H_{2,2}$ ($N=3$)}}}
+\pgftext[at={\pgfpoint{1.87484in}{0.125156in}}] {\makebox(0,0)[tl]{\hbox{\color{rgb_000000}Whitney ($N=3$)}}}
+\pgftext[at={\pgfpoint{1in}{0.125156in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$N=4$}}}
+\pgftext[at={\pgfpoint{1.87484in}{1in}}] {\makebox(0,0)[l]{\hbox{\color{rgb_000000}$N=4$}}}
+\pgftext[at={\pgfpoint{1.04151in}{1.04151in}}] {\makebox(0,0)[br]{\hbox{\color{rgb_000000}$N=5$}}}
+\pgftext[at={\pgfpoint{1.33333in}{0.666667in}}] {\makebox(0,0)[c]{\hbox{\color{rgb_000000}$N=5$}}}
+\end{tikzpicture}
