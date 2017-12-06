@@ -7,7 +7,7 @@ Graduate level minicourse on Hermitian forms in SCV
 
 A free online textbook.  See http://www.jirka.org/scv-mini/
 
-
-Note: Some of the shell scripts here are really for me
-and are really hacky ways to just do things.  Feel free to ignore
-them
+* make-tar.sh makes a tarball
+* publish.sh makes a pdf
+* gendiags.sh runs sketch2pdf.sh on the diag files
+* sketch2pdf.sh runs sketch3d to go through the .sk through tikz to pdf process
