@@ -6,11 +6,6 @@
 
 \usepackage[T1]{fontenc}
 
-% Footnotes should use symbols, not numbers.  Numbered footnotes are
-% evil
-\usepackage[perpage,symbol*]{footmisc}
-
-
 \usepackage{enumerate}
 \usepackage{ifpdf}
 \usepackage{amsmath}
@@ -22,7 +17,7 @@
 %\usepackage{graphics}
 \usepackage[headings]{fullpage}
 \usepackage{url}
-\usepackage{varioref}
+%\usepackage{varioref}
 %\usepackage{floatflt}
 %\usepackage{wrapfig}
 \usepackage{makeidx}
@@ -349,7 +344,7 @@ Prerequisites are one variable complex analysis, linear algebra, real
 analysis and basic functional analysis.  The notes are not meant as a
 polished finished product.  I hope they are usable as a quick and dirty
 introduction to the subject.  Due to time constraints much is missing.  For
-example, the Levi form, nor pseudoconvexity is not mentioned.  The focus is
+example, neither the Levi form nor pseudoconvexity is mentioned.  The focus is
 on geometry using Hermitian forms rather than analysis.
 
 The notes are also not completely self contained.  There are many proofs
@@ -438,7 +433,7 @@ As in complex analysis in one variable we define the formal operators
 \begin{align}
 \frac{\partial}{\partial z_j} &  \overset{\text{def}}{=}
 \frac{1}{2} \left(
-\frac{\partial}{\partial x_j} - i \frac{\partial}{\partial y^j}
+\frac{\partial}{\partial x_j} - i \frac{\partial}{\partial y_j}
 \right) ,
 \\
 \frac{\partial}{\partial \bar{z}_j} &  \overset{\text{def}}{=}
@@ -522,7 +517,7 @@ If we differentiate both sides (assuming $\alpha \in \N_0^n$, i.e. $\alpha_j
 \frac{\partial^{\abs{\alpha}}}{\partial z^\alpha} f(z) =
 \frac{1}{{(2\pi i)}^n}
 \int_{\Gamma}
-\frac{\alpha! f(\zeta)}{(\zeta-z)^{\alpha+1}}
+\frac{\alpha! f(\zeta)}{{(\zeta-z)}^{\alpha+1}}
 d \zeta ,
 \end{equation}
 where $\alpha+1 = (\alpha_1+1,\ldots,\alpha_n+1)$.  Just as in one-variable
@@ -553,7 +548,7 @@ Suppose that $f \colon \overline{\Delta} \to \C$ is continuous and
 holomorphic on $\Delta$.  Then on $\Delta$, $f$ is equal to a series 
 converging uniformly on compact subsets of $\Delta$:
 \begin{equation} \label{holfunc:ps}
-f(z) = \sum_{\alpha} c_\alpha (z-a)^\alpha .
+f(z) = \sum_{\alpha} c_\alpha {(z-a)}^\alpha .
 \end{equation}
 
 Conversely if $f$ is defined by \eqref{holfunc:ps} converging
@@ -574,7 +569,7 @@ c_\alpha
 =
 \frac{1}{{(2\pi i)}^n}
 \int_{\Gamma}
-\frac{f(\zeta)}{(\zeta-z)^{\alpha+1}}
+\frac{f(\zeta)}{{(\zeta-z)}^{\alpha+1}}
 d \zeta .
 \end{equation}
 The details are left to the reader.
@@ -587,7 +582,7 @@ to the series termwise.
 
 \begin{thm}[\myindex{Identity theorem}]
 Let $U \subset \C^n$ be a connected open set and let
-$f \colon U \to \C$ be a holomorphic.  Suppose that
+$f \colon U \to \C$ be holomorphic.  Suppose that
 $f|_N \equiv 0$ for an open
 subset $N \subset U$.
 Then $f \equiv 0$.
@@ -620,7 +615,8 @@ attains a maximum at some $a \in U$.  Then $f \equiv f(a)$.
 \begin{proof}
 The set $E$ of points $z \in U$ where $f(z) = f(a)$ is closed.
 Let $b \in E$.  We look at the complex line $L = \{ b + \lambda v : \lambda
-\in \C, v \in \C^n \}$.  Now we note that the one variable function
+\in \C \}$ for a $v \in \C^n \setminus \{ 0 \}$.
+The one-variable function
 $\lambda \mapsto f(b + \lambda v)$ is holomorphic.  If we look at the
 connected component $V$ of $L \cap U$ that contains $b$, we can apply
 the one variable Maximum principle and obtain that $f|_V \equiv f(b) = f(a)$.
@@ -758,7 +754,7 @@ Let $U \subset \C^{n-1}$ be open.  Let $z' \in \C^{n-1}$ denote the
 coordinates.
 Suppose that $p \in \sO(U)[z_n]$ is monic of degree $k$, that is,
 \begin{equation}
-p(z',z_n) = z_n^k + \sum_{j=0} c_j(z') \, z_n^j .
+p(z',z_n) = z_n^k + \sum_{j=0}^{k-1} c_j(z') \, z_n^j .
 \end{equation}
 Further suppose that $c_j(0) = 0$ for all $j$.  Then $p$ is
 called a \emph{\myindex{Weierstrass polynomial}} of degree $k$.
@@ -830,7 +826,7 @@ the elementary symmetric functions of the $\alpha_j$'s.  It is a standard (and
 easy) theorem in algebra that the elementary symmetric functions are
 polynomials in the so-called power sum functions in the $\alpha_j$'s.
 \begin{equation}
-s_m(z') = \sum_{j=1}^k \alpha_j(z')^m .
+s_m(z') = \sum_{j=1}^k \alpha_j{(z')}^m .
 \end{equation}
 Therefore, if we can show that $s_m$ are holomorphic, then $c_j$ are also
 holomorphic.
@@ -848,7 +844,7 @@ are the zeros of $g$ in $D$, then
 We use the formula above and obtain that
 \begin{equation}
 s_m(z') = 
-\sum_{j=1}^k \alpha_j(z')^m
+\sum_{j=1}^k \alpha_j{(z')}^m
 =
 \frac{1}{2\pi i}
 \int_{\partial D}
@@ -1038,7 +1034,7 @@ Proof omitted.
 %we need only prove this locally near the origin.  After a possibly
 %linear change of coordinates we can apply the preparation theorem to find
 %that near the origin, $Z_f$ is the zero set of a Weierstrass polynomial
-%$p(z',z_n)$.  As ${}_n\sO_0$ is a UFD, we can assume that $f$ and therefore
+%$p(z',z_n)$.  As ${}_n\sO_0$ is a UFD\@, we can assume that $f$ and therefore
 %$p$ is irreducible.
 %
 %With the same notation as in the proof of the preparation theorem,
@@ -1115,14 +1111,14 @@ irreducible elements of $\sO_p$.
 \begin{proof}
 We again assume $p$ is the origin.
 We induct on the dimension.  The one dimensional statement is left
-as an exercise.  If ${}_{n-1}\sO_0$ is a UFD, then
+as an exercise.  If ${}_{n-1}\sO_0$ is a UFD\@, then
 ${}_{n-1}\sO_0[z_n]$ is a UFD by the Gauss lemma.
 
 Take $f \in {}_n\sO_p$.  After perhaps a linear change of coordinates
 $f = qW$ where $q$ is a unit in ${}_n\sO_0$
 and $W$ is a Weierstrass polynomial in $z_n$.
 As 
-${}_{n-1}\sO_0[z_n]$ is a UFD, then $W$ has a unique
+${}_{n-1}\sO_0[z_n]$ is a UFD\@, then $W$ has a unique
 factorization in 
 ${}_{n-1}\sO_0[z_n]$ into $W = W_1 W_2 \cdots W_k$.
 So $f = q W_1 W_2 \cdots W_k$.  That $W_j$ are irreducible
@@ -1137,7 +1133,7 @@ $f = u \tilde{W}_1 \tilde{W}_2 \cdots \tilde{W}_m$ for a unit $u$.  By
 uniqueness part of the preparation theorem we obtain
 $W = \tilde{W}_1 \tilde{W}_2 \cdots \tilde{W}_m$.  Conclusion is then
 obtained by noting that
-${}_{n-1}\sO_0[z_n]$ is a UFD.
+${}_{n-1}\sO_0[z_n]$ is a UFD\@.
 \end{proof}
 
 \begin{exercise}
@@ -1299,11 +1295,6 @@ to be
 \max \{ k \in \N_0 : \text{ $\forall$ neighborhoods
 $N$ of $p$, $\exists q \in N \cap X_{\mathit{reg}}$ with $\dim_q X = k$} \} .
 \end{equation}
-The dimension of $X$ is defined to be
-\begin{equation}
-\dim X \overset{\text{def}}{=}
-\max_{p \in X} \dim_p X .
-\end{equation}
 We also define the \emph{dimension} of the whole variety as
 \begin{equation}
 \dim X \overset{\text{def}}{=}
@@ -1377,8 +1368,8 @@ $X = X_1 \cup X_2$.
 Else the germ $(X,p)$ is \emph{irreducible} in $U$.
 \end{defn}
 
-It turns out that for the local notion we simply need to check
-does not exist a germ $(Y,p) \subset (X,p)$
+It turns out that for the local notion, we simply need to check
+that there does not exist a germ $(Y,p) \subset (X,p)$
 $(Y,p) \not= (X,p)$ and $\dim_p X = \dim_p Y$.
 We state without proof that if a complex
 variety is irreducible, then it has the same dimension at all points, and
@@ -1388,7 +1379,7 @@ the special case of codimension 1 as an exercise).
 
 \begin{thm}[\myindex{Local parametrization theorem}]
 \label{localparthm}
-Let $(V,0)$ an irreducible germ of a complex variety of dimension $k$
+Let $(V,0)$ be an irreducible germ of a complex variety of dimension $k$
 in $\C^n$.  Let $V$ denote a representative of the germ.
 Then after a linear change of coordinates, we let
 $\pi \colon \C^n \to \C^k$ be the projection onto the first $k$
@@ -1421,7 +1412,7 @@ that this property holds for all varieties.
 \begin{example}
 Note that the local and global behavior are different.  For example
 \begin{equation}
-z_2^2 = z_1(z_1-1)^2
+z_2^2 = z_1{(z_1-1)}^2
 \end{equation}
 is irreducible in $\C^2$ (the regular points are connected) but locally
 at the point
@@ -1482,6 +1473,7 @@ dimensions we can always find enough curves through any point,
 and then we can parametrize those.
 
 \begin{exercise}
+\pagebreak[2]
 Using the local parametrization theorem, prove that
 if $(X,p)$ is an irreducible germ of a complex variety of dimension greater
 than 1, then there exists a neighborhood $U$ of $p$ and a closed subvariety
@@ -1556,7 +1548,7 @@ take boundary to boundary.  In particular we have the following lemma.
 
 \begin{lemma} \label{lemma:bndrytobndry}
 Let $U \subset \R^n$ and $V \subset \R^m$ be bounded domains and
-let $f \colon U \to V$ be a continuous.
+let $f \colon U \to V$ be continuous.
 Then $f$ is proper if and only if
 for every sequence $\{ z_k \}$ in $U$ such that $z_k \to p \in \partial U$,
 the set of limit points of $\{ f(z_k) \}$ lies in $\partial V$.
@@ -1794,7 +1786,7 @@ matrix
 $C = [ c_{\alpha \beta} ]$.  We call $C$ the \emph{\myindex{matrix of
 coefficients}}.  For convenience, let the rows be denoted by the $\beta$
 and the columns by $\alpha$.  We will write $X^* = \overline{X^t}$ for the
-conjuate transpose of $X$.
+conjugate transpose of $X$.
 
 As $r$ is Hermitian symmetric, $C$
 is Hermitian symmetric as it is easy to check that the
@@ -1952,17 +1944,17 @@ v_3 =
 and $w_1 = \sqrt{3} v_1$, $w_2 = v_2$ and $w_3 = v_3$.  Thus
 \begin{equation}
 f_1(z) = \sqrt{3} z_2^2, \quad
-f_2(z) = \frac{z_1-iz_2}{\sqrt{2}}, \quad
-g_1(z) = \frac{z_1+iz_2}{\sqrt{2}} ,
+f_2(z) = \frac{z_1+iz_2}{\sqrt{2}}, \quad
+g_1(z) = \frac{z_1-iz_2}{\sqrt{2}} ,
 \end{equation}
 and
 \begin{equation}
 r(z,\bar{z})
 =
 \abs{\sqrt{3} z_2}^2 +
-\abs{\frac{z_1-iz_2}{\sqrt{2}}}^2
+\abs{\frac{z_1+iz_2}{\sqrt{2}}}^2
 -
-\abs{\frac{z_1+iz_2}{\sqrt{2}}}^2.
+\abs{\frac{z_1-iz_2}{\sqrt{2}}}^2.
 \end{equation}
 \end{example}
 
@@ -2134,7 +2126,7 @@ where $h$, $f$, and $g$ vanish at $p$.  By adding zero components
 assume that target dimensions of $f$ and $g$ are the same.
 Then $M$ contains a germ of complex
 variety at $p$
-if and only if there exists a unitary matrix $U$ with such that
+if and only if there exists a unitary matrix $U$ such that
 %FIXME
 the variety $V(h,f-Ug)$ (i.e.\ the variety defined by $h=0$ and $f=Ug$)
 is nontrivial.
@@ -2434,13 +2426,13 @@ to see that we must get
 \abs{\langle A u , v \rangle} \leq
 \norm{Au}\norm{v}
 \leq
-M \norm{u} \norm{v} .
+\sqrt{M} \norm{u} \norm{v} .
 \end{equation}
 By continuity this is true for all $v$.  Letting $v=Au$ we find
 \begin{equation}
-\norm{Au}^2 \leq M \norm{u} \norm{Au},
+\norm{Au}^2 \leq \sqrt{M} \norm{u} \norm{Au},
 \end{equation}
-or in other words $\norm{Au} \leq M \norm{u}$.  Thus, $A$ is bounded
+or in other words $\norm{Au} \leq \sqrt{M} \norm{u}$.  Thus, $A$ is bounded
 and we can extend to all of $\ell^2$.
 
 We leave that $A$ is unique to the reader.
@@ -2543,8 +2535,8 @@ Let $V \subset \C^n$ be a connected open neighborhood of $p$.
 Let $F \colon V \to \ell^2$ and 
 $G \colon V \to \ell^2$ be holomorphic maps such that
 $\norm{F(z)}^2 = \norm{G(z)}^2$ for all $z \in V$. 
-Write $F(z) = \sum f_\alpha (z-p)^\alpha$ and 
-$G(z) = \sum f_\alpha (z-p)^\alpha$ (where $f_\alpha$ and $g_\alpha$ are in
+Write $F(z) = \sum f_\alpha {(z-p)}^\alpha$ and 
+$G(z) = \sum f_\alpha {(z-p)}^\alpha$ (where $f_\alpha$ and $g_\alpha$ are in
 $\ell^2$).
 
 Then 
@@ -2642,7 +2634,7 @@ smooth submanifold.
 \begin{prop}
 Let $M \subset \C^n$ be a real-analytic hypersurface (nonsingular)
 If at $p$ there is a germ of a complex subvariety $(X,p)$ of (complex)
-dimension $n-1$ such that $(X,p) \subset (M,p)$.  Then $(X,p)$ is the unique
+dimension $n-1$ such that $(X,p) \subset (M,p)$, then $(X,p)$ is the unique
 nonsingular complex manifold through $p$ and there exists a local defining
 function $r$ for $M$ such that $(X,p) = (\Sigma,p)$.
 
@@ -3261,8 +3253,8 @@ diagonal matrix.
 \end{proof}
 
 \begin{lemma}
-If $F \colon \bB_n \to \bB_N$ is a proper monomial map of degree 2 or less
-taking.  Then $F$ is spherically equivalent to one map
+If $F \colon \bB_n \to \bB_N$ is a proper monomial map of degree 2 or less,
+then $F$ is spherically equivalent to one map
 of the form
 \begin{equation}
 D z \oplus \bigl( ( \sqrt{I-D^2} \, z ) \otimes z \bigr) ,
@@ -3275,7 +3267,7 @@ t_1 & & 0 \\
 0 & & t_n
 \end{smallmatrix}
 \right]$
-with $0 \leq t_1 \leq t_2 \leq \ldots \leq t_n \leq 1$.
+with $0 \leq t_1 \leq t_2 \leq \dots \leq t_n \leq 1$.
 If $F(0) = 0$, then
 equivalence is by permuting the variables and 
 components of the map and 
@@ -3893,7 +3885,7 @@ determined uniquely up to permutation.
 I_n & 0
 \end{bmatrix} ,
 \begin{bmatrix}
-0 & J_n(\alpha+i\beta)^* \\
+0 & J_n{(\alpha+i\beta)}^* \\
 J_n(\alpha+i\beta) & 0
 \end{bmatrix}
 \right)$, $\alpha,\beta \in \R$, $\alpha+\beta i \not=i$, $\beta > 0$.
@@ -3970,7 +3962,7 @@ for $(J,A)$
        0 &        0 &    \beta\\
        0 &    \beta &        1
 \end{bmatrix}
-\right)3.
+\right).
 \end{equation}
 For $\alpha, \beta \in \R$.
 Take
@@ -4131,7 +4123,7 @@ In particular, $f$ is equivalent to a map taking $(z_1,\ldots,z_n)$ to
 \ldots ,
 \sqrt{2-t_{n-1}-t_n} \, z_{n-1}z_n \bigr) , 
 \\
-0 \leq t_1 \leq t_2 \leq \ldots \leq t_n \leq 1.
+0 \leq t_1 \leq t_2 \leq \dots \leq t_n \leq 1.
 \end{multline}
 Furthermore, all maps of the form \eqref{alldeg2maps} are mutually
 spherically inequivalent for different parameters $(t_1,\ldots,t_n)$.
@@ -4271,7 +4263,7 @@ $Q(x,y,t)=x^2+y^2+t^2
 \end{figure}
 
 We will say that two points (or monomials) are \emph{adjacent}
-if the corresponding monomials $m_1$ and $m_2$ if
+if the corresponding monomials $m_1$ and $m_2$ satisfy
 $v_1 m_1 = v_2 m_2$, where $v_1$ is $x$, $y$, or $t$
 and $v_2$ is $x$, $y$, or $t$.
 Between any two points (or any two monomials)
