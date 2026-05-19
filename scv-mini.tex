@@ -9,8 +9,8 @@
 \usepackage{enumerate}
 \usepackage{ifpdf}
 \usepackage{amsmath}
-\usepackage[psamsfonts]{amsfonts}
-\usepackage[psamsfonts]{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[pdftex]{graphicx}
 %\usepackage{color}
@@ -271,7 +271,7 @@ Typeset in \LaTeX.
 \bigskip
 
 \noindent
-Copyright \copyright 2011 Ji{\v r}\'i Lebl
+Copyright \copyright 2011,2026 Ji{\v r}\'i Lebl
 
 \bigskip
 
@@ -312,8 +312,10 @@ the author was in part supported by NSF grant DMS-0900885.
 \bigskip
 
 \noindent
-See \url{http://www.jirka.org/scv-mini/} for more information
-(including contact information).
+See
+\url{https://www.jirka.org/scv-mini/} or
+\url{https://jirilebl.github.io/scv-mini/}
+for more information (including contact information).
 
 
 % For large print do this
@@ -355,7 +357,9 @@ make it into these notes and vice versa.
 There are most likely many typos and minor errors throughout (hopefully no
 major ones), so be wary.  Do email me any errors you find so that they get
 fixed.
-See \url{https://www.jirka.org/scv-mini/} for more info.
+See \url{https://www.jirka.org/scv-mini/} or
+\url{https://jirilebl.github.io/scv-mini/}
+for more info.
 
 The structure of the course is the following.
 
@@ -578,8 +582,6 @@ The converse follows by applying the Cauchy-Riemann equations
 to the series termwise.
 \end{proof}
 
-%Now we can prove the identity theorem for holomorphic functions.
-
 \begin{thm}[\myindex{Identity theorem}]
 Let $U \subset \C^n$ be a connected open set and let
 $f \colon U \to \C$ be holomorphic.  Suppose that
@@ -593,7 +595,7 @@ Let $Z$ be set where all derivatives of $f$ are zero; then
 $N \subset Z$.  The set $Z$ is closed in $U$
 as all derivatives are continuous.
 Take an arbitrary $a \in Z$.
-We find $\Delta_\rho(a) \subset U$.  If we expand $f$
+We find $\Delta_\rho(a) \subset U$.  Expand $f$
 in a power series around $a$.  As the coefficients are given by derivatives 
 of $f$, we see that the power series is identically zero and hence $f$ is
 identically zero in $\Delta_\rho(a)$.  Therefore $Z$ is open in $U$ and
@@ -782,7 +784,7 @@ f(z',z_n) = u(z',z_n) \, p(z',z_n) .
 \end{thm}
 
 Thus for a fixed $z'$ we see that the zeros of $f$ coincide with the zeros
-of a degree $m$ polynomial whose coefficients depend holomorphically on $z'$.
+of a degree $k$ polynomial whose coefficients depend holomorphically on $z'$.
 
 In one variable, the theorem is very easy.  If $f$ is holomorphic and not
 identically zero and the order of vanishing at 0 is $k$, then $f(z) = z^k
@@ -826,7 +828,7 @@ the elementary symmetric functions of the $\alpha_j$'s.  It is a standard (and
 easy) theorem in algebra that the elementary symmetric functions are
 polynomials in the so-called power sum functions in the $\alpha_j$'s.
 \begin{equation}
-s_m(z') = \sum_{j=1}^k \alpha_j{(z')}^m .
+s_m(z') = \sum_{j=1}^k {\alpha_j(z')}^m .
 \end{equation}
 Therefore, if we can show that $s_m$ are holomorphic, then $c_j$ are also
 holomorphic.
@@ -844,7 +846,7 @@ are the zeros of $g$ in $D$, then
 We use the formula above and obtain that
 \begin{equation}
 s_m(z') = 
-\sum_{j=1}^k \alpha_j{(z')}^m
+\sum_{j=1}^k {\alpha_j(z')}^m
 =
 \frac{1}{2\pi i}
 \int_{\partial D}
@@ -1004,7 +1006,7 @@ set $E$ such that
 $U' \setminus E$ is connected open and dense in $U'$ such that 
 $z_n \mapsto f(z',z_n)$ has exactly $m$ zeros for $z' \in U' \setminus E$.
 
-Furthermore, for each point $z' \in U'$ there exists a neighborhood $N
+Furthermore, for each point $p \in U'$ there exists a neighborhood $N
 \subset U'$ of $p$
 and a holomorphic function $\omega \colon N \to \C$ such that
 $\{ z' : \omega(z') = 0 \} = E \cap N$.
@@ -1019,40 +1021,6 @@ $\omega$ is the discriminant we learned about in high school.
 
 \begin{proof}
 Proof omitted.
-%FIXME:
-%Let $V \subset U'$ be the set where
-%$z_n \mapsto f(z',z_n)$ has precisely $m$ geometrically distinct zeros.
-%Thus near each point $z' \in V$ we can find $m$
-%holomorphic functions $\alpha_1,\ldots,\alpha_m$ that give the zeros.
-%
-%Near every point of 
-%
-%
-%
-%
-%Without loss of generality,
-%we need only prove this locally near the origin.  After a possibly
-%linear change of coordinates we can apply the preparation theorem to find
-%that near the origin, $Z_f$ is the zero set of a Weierstrass polynomial
-%$p(z',z_n)$.  As ${}_n\sO_0$ is a UFD\@, we can assume that $f$ and therefore
-%$p$ is irreducible.
-%
-%With the same notation as in the proof of the preparation theorem,
-%define the discriminant function 
-%\begin{equation}
-%D(z') = \prod_{j \not= m} (\alpha_j(z')-\alpha_m(z')) .
-%\end{equation}
-%The function $D(z')$ is holomorphic as it can be written as a polynomial
-%in the symmetric functions of the $\alpha$ (exercise).  Either $D$
-%is identically zero, or it is 
-%
-%Need page 22 whitney ... hmmm
-%
-%FIXME
-%
-%
-%
-%
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1085,8 +1053,8 @@ is such an element.  After perhaps a linear change of coordinates, we can
 assume that $g$ is a Weierstrass polynomial in $z_n$
 by the preparation theorem.
 
-B the division theorem,
-every element in $f \in I$ is of the form $f = gq+r$ where $r$
+By the division theorem,
+every element $f \in I$ is of the form $f = gq+r$ where $r$
 is a polynomial in $z_n$.  We can think of
 $r$ as an element of ${}_{n-1}\sO_0[z_n]$ and furthermore $r \in I$.
 The set $J= I \cap {}_{n-1}\sO_0[z_n]$ is an ideal in the
@@ -1268,8 +1236,9 @@ that near the origin, $Z_f$ is the zero set of a Weierstrass polynomial
 $p(z',z_n)$ defined on some $U' \times \C$.
 Let $E$ be the discriminant set for $p$.  Above each
 point in $U' \setminus E$ the set is union of $m$ distinct graphs
-of holomorphic functions by \propref{prop:rootshol}.  As above,
-each point of $E$ we only have finitely many points of $Z_f$ the conclusion
+of holomorphic functions by \propref{prop:rootshol}.  As before,
+above each point of $E$ we only have finitely many points of $Z_f$,
+and the conclusion
 follows.
 \end{proof}
 
@@ -1356,7 +1325,7 @@ two germs $(X_1,p)$ and $(X_2,p)$ with
 $(X_1,p) \not\subset (X_2,p)$ and
 $(X_2,p) \not\subset (X_1,p)$ such that
 $(X,p) = (X_1,p) \cup (X_2,p)$.
-Else the germ $(X,p)$ is \emph{\myindex{irreducible}} at $p$.
+Otherwise, the germ $(X,p)$ is \emph{\myindex{irreducible}} at $p$.
 
 Similarly globally, a subvariety $X \subset U$ is
 \emph{reducible} in $U$ if there exist
@@ -1482,31 +1451,6 @@ $q \in X$ there exists an irreducible subvariety $Y \subset X$
 of dimension 1 such that $p \in Y$ and $q \in Y$.
 \end{exercise}
 
-%\begin{proof}
-%By the UFD property and after a linear change of coordinates
-%we can assume that $X$ is at the origin the zero set of an irreducible
-%Weierstrass polynomial 
-%\begin{equation}
-%z_2^k + \sum_{j=0}^{k-1} c_j(z_1) z_2^j .
-%\end{equation}
-%If the discriminant function does not vanish at the origin, we are done.
-%So suppose that the discriminant function is zero at the origin and
-%we will work in a small enough disc $\Delta$ such that
-%this is its only zero.
-%
-%Pick $z \in \Delta$, $z \not= 0$.  Let $\Gamma$ be a circle around the origin
-%through $z$.  We can follow the root above the point in $\Gamma$ as we go
-%around the circle.  After some number of loops we must come back to the same
-%root.  We claim that this number of loops is precisely $k$.
-%
-%FIXME:
-%\end{proof}
-
-%FIXME
-
-%FIXME: extra sections?  Real geometry?  Nullstellensatz?
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1529,7 +1473,7 @@ Being proper is a purely topological notion.  It can be thought of as the
 first step towards having a continuous inverse.  We know that a continuous
 map pushes forward compact sets but inverse images of compact sets could be
 only closed.  The inverse image of compact sets being compact is a necessary,
-but by far not sufficient condition to having a continuous inverse.
+but by far not sufficient condition for having a continuous inverse.
 
 One way to understand proper maps is by looking at compactifications.
 Let $X^\infty$ and $Y^\infty$ be the one
@@ -1679,10 +1623,11 @@ of the domains.
 \sectionnewpage
 \section{Polarization} \label{sec:polarization}
 
-Let us prove an immensely useful result for CR geometry.  The consequence
-will be that we will be able to treat $z$ and $\bar{z}$ as separate
-variables.  First let us define for a domain $U \subset \C^n$
+We prove an immensely useful result for CR geometry.  As a consequence,
+we can treat $z$ and $\bar{z}$ as separate
+variables.  First we define
 the complex conjugate
+for a domain $U \subset \C^n$
 \begin{equation}
 U^* \overset{\text{def}}{=} \{ z \in \C^n : \bar{z} \in U \} .
 \end{equation}
@@ -1747,7 +1692,7 @@ sometimes also called \emph{\myindex{complexification}}.
 
 \subsection{Polynomials as Hermitian forms}
 
-We first start with relating real polynomials and Hermitian forms.  We will
+We start with relating real polynomials and Hermitian forms.  We will
 build up to real-analytic functions later.  The results of this section in
 the context of complex analysis are due to D'Angelo.
 
@@ -1838,7 +1783,7 @@ z_1 \\ z_2 \\ z_2^2
 
 We can see that a real-valued 
 polynomial on $\C^n$ can be regarded as a Hermitian form on the space of 
-Holomorphic polynomials.  When we use the monomial basis for that space,
+holomorphic polynomials.  When we use the monomial basis for that space,
 we recover the matrix $C$.  Notice that once we fix the basis and the
 ordering, then $C$ is uniquely determined.
 
@@ -1861,7 +1806,7 @@ r(z,\bar{z}) = \norm{f(z)}^2-\norm{g(z)}^2 .
 \end{prop}
 
 \begin{proof}
-Take $v_1,\ldots,v_{a+b}$ be an orthonormal set of eigenvectors of
+Take $v_1,\ldots,v_{a+b}$ to be an orthonormal set of eigenvectors of
 the matrix of coefficients corresponding
 to the nonzero eigenvalues.
 Let $v_1,\ldots,v_a$ be the eigenvectors corresponding to
@@ -2014,10 +1959,10 @@ the functions $w_j^* \sZ$ must vanish at the origin.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \sectionnewpage
-\section{Complex varieties in real algebraic hypersurfaces}
+\section{Complex varieties in real-algebraic hypersurfaces}
 \label{sec:curvinalg}
 
-A \emph{\myindex{real algebraic hypersurface}} is a real submanifold $M$
+A \emph{\myindex{real-algebraic hypersurface}} is a real submanifold $M$
 of $\R^{2n} \cong \C^n$ of real dimension $2n-1$ that is defined
 by
 \begin{equation*}
@@ -2065,14 +2010,14 @@ h\bigl(\varphi(t)\bigr)
 +
 \bar{h}\bigl(\bar{\varphi}(0)\bigr)
 + f(z)\cdot \bar{f}\bigl(\bar{\varphi}(0)\bigr)
-+ g(z)\cdot \bar{g}\bigl(\bar{\varphi}(0)\bigr)
+- g(z)\cdot \bar{g}\bigl(\bar{\varphi}(0)\bigr)
 \\
 & =
 h\bigl(\varphi(t)\bigr)
 +
 \overline{h(p)}
 + f(z)\cdot \overline{f(p)}
-+ g(z)\cdot \overline{g(p)}
+- g(z)\cdot \overline{g(p)}
 \\
 & = h\bigl(\varphi(t)\bigr) .
 \end{split}
@@ -2085,7 +2030,7 @@ more about this useful variety later on.  For now, let us simply note that
 we have proved the following proposition.
 
 \begin{prop}
-Let $M \subset \C^n$ be a real algebraic hypersurface.
+Let $M \subset \C^n$ be a real-algebraic hypersurface.
 Let $(X,p)$ be a germ of a complex variety such that
 $(X,p) \subset (M,p)$.  Then $(X,p) \subset (\Sigma_p,p)$.
 \end{prop}
@@ -2127,7 +2072,6 @@ assume that target dimensions of $f$ and $g$ are the same.
 Then $M$ contains a germ of complex
 variety at $p$
 if and only if there exists a unitary matrix $U$ such that
-%FIXME
 the variety $V(h,f-Ug)$ (i.e.\ the variety defined by $h=0$ and $f=Ug$)
 is nontrivial.
 
@@ -2137,7 +2081,7 @@ then there exists a unitary $U$ such that $(X,p) \subset (V,p)$.
 \end{thm}
 
 \begin{proof}
-Let us start with the easy direction.  Suppose that there
+We start with the easy direction.  Suppose that there
 exists a unitary matrix $U$ such that $V(h,f-Ug)$ is
 nontrivial.  For a unitary matrix $U$
 we have that $\norm{Ug(z)}^2 = \norm{g(z)}^2$.  So if $z$
@@ -2183,11 +2127,11 @@ then there exists a unitary $U$ such that $F(z) = U G (z)$.
 \end{lemma}
 
 \begin{proof}
-Without loss of generality let us assume that $V$ is a neighborhood
+Without loss of generality, assume that $V$ is a neighborhood
 of the origin where the power series for both $F$ and $G$ converges.
-Let us denote by $F$ the $m \times \infty$ matrix of coefficients
+Denote by $F$ the $m \times \infty$ matrix of coefficients
 of the function $F(z)$ and similarly with $G$.  
-Let $\sZ$ is an infinite column vector of all the monomials in $z$
+Let $\sZ$ be an infinite column vector of all the monomials in $z$
 such that $F(z) = F \sZ$ and
 $G(z) = G \sZ$.  We then see that
 $\norm{F(z)}^2 = \sZ^* F^* F \sZ$
@@ -2247,7 +2191,7 @@ The algebraic hypersurface $M \subset \C^3$ defined by
 0= 2 \Re z_3 + \abs{z_1}^2 - \abs{z_2}^2
 \end{equation}
 contains many complex lines through the origin.  In particular any line of the
-form $\{ z : z_3 = 0, z_1 = e^{i\theta} z_2 \}$ for some fixed $\alpha$.
+form $\{ z : z_3 = 0, z_1 = e^{i\theta} z_2 \}$ for some fixed $\theta$.
 No other complex varieties exist.  Furthermore there is not
 a single unique complex variety sitting in $M$.  The union of all the lines
 is the set
@@ -2260,7 +2204,7 @@ Let us modify the example just a little bit to define $M \subset \C^3$ as
 \begin{equation}
 0=2 \Re z_3 + \sabs{z_1}^2 + \sabs{z_1^2}^2 - \sabs{z_2}^2 .
 \end{equation}
-We have added a higher order term only, yet this modification produced an
+We have added a higher order term only, yet this modification produced a
 hypersurface containing no nontrivial complex analytic variety through the
 origin.
 By the theorem $M$ can contain a variety if and only if there exists a $2
@@ -2290,7 +2234,7 @@ Diederich-Fornaess allows singularities and does not require algebraicity but
 only real-analyticity.
 
 \begin{cor}[Special case of Diederich-Fornaess]
-Let $M \subset \C^n$ be a compact real algebraic hypersurface in $\C^n$.
+Let $M \subset \C^n$ be a compact real-algebraic hypersurface in $\C^n$.
 Then at no point does $M$ contain a germ of a nontrivial complex analytic variety.
 \end{cor}
 
@@ -2311,8 +2255,6 @@ If $V'$ is nontrivial, apply same reasoning to $V'$ to show that $V$ must be
 a finite set of points.  To see that the set is finite, remember that any
 variety $V$ must be a locally finite union of manifolds.
 \end{proof}
-
-%FIXME: should we prove "no variety is compact" earlier?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2536,7 +2478,7 @@ Let $F \colon V \to \ell^2$ and
 $G \colon V \to \ell^2$ be holomorphic maps such that
 $\norm{F(z)}^2 = \norm{G(z)}^2$ for all $z \in V$. 
 Write $F(z) = \sum f_\alpha {(z-p)}^\alpha$ and 
-$G(z) = \sum f_\alpha {(z-p)}^\alpha$ (where $f_\alpha$ and $g_\alpha$ are in
+$G(z) = \sum g_\alpha {(z-p)}^\alpha$ (where $f_\alpha$ and $g_\alpha$ are in
 $\ell^2$).
 
 Then 
@@ -2804,10 +2746,10 @@ within a ball of radius $\delta$ around $p$.
 Now look at the defining equation $r$ for $M$ near $p$.  There is some
 $\alpha > 0$ such that when we rescale,
 \thmref{thm:holinm} applies at $p$ and says that any complex variety
-contained in $X$ through $p$ is contained in a subvariety of
-$\Delta_{\alpha}(p) \cap M$.  Now we notice that
-\thmref{thm:holinm} actually applies in a small neighborhood of $p$.
-That is we can pick some $\beta > 0$ (smaller than $\alpha$) such that
+$X$ through $p$ is contained in a subvariety of
+$\Delta_{\alpha}(p) \cap M$.  In fact,
+\thmref{thm:holinm} applies in a small neighborhood of $p$.
+That is, there is some $\beta > 0$ (smaller than $\alpha$) such that
 for every
 $q \in B(\beta;p) \cap M$
 (where $B(\beta;p)$ is the
@@ -2819,7 +2761,7 @@ If we pick $q \in S$ close enough to $p$, for example,
 $\norm{p-q} < \min\{ \alpha , \beta, \delta \}$, then when we find the
 subvariety $\tilde{X}$ of $\Delta_\alpha(p) \cap M$ that contains $X$
 and
-we notice that $\varphi$ attains its maximum on $\tilde{X}$ away from the boundary
+we notice that $\psi$ attains its maximum on $\tilde{X}$ away from the boundary
 of $\Delta_\alpha(p)$ (as $\tilde{X} \subset S$).
 
 A holomorphic function cannot attain a maximum on a variety
@@ -2839,22 +2781,6 @@ such that $\{ \psi = c \} \cap \overline{S}$ is a compact subset
 of $\Delta_\alpha(p)$ and so $\tilde{X}$ is a compact subset of $\Delta_\alpha(p)$.
 By similar reasoning as before $\tilde{X}$ has to be trivial.
 \end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\sectionnewpage
-%\section{Order of contact} \label{sec:order}
-%
-%FIXME
-%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\sectionnewpage
-%\section{Analytic curves in smooth hypersurfaces}
-%\label{sec:curvinsmooth}
-%
-%FIXME
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2899,7 +2825,7 @@ Finish the proof.
 How about in higher dimensions.  Well the story is no longer so simple.
 
 \begin{thm}[Pin{\v c}uk / Alexander '77 (complicated history\ldots)]
-If $f \colon \bB_n \to \bB_n$ is proper holomorphic map and $n \geq 2$, then $f$
+If $f \colon \bB_n \to \bB_n$ is a proper holomorphic map and $n \geq 2$, then $f$
 is an automorphism of $\bB_n$.
 \end{thm}
 
@@ -2930,7 +2856,7 @@ although we will not find use for this form.  It is interesting to note that
 the automorphisms do look like Blaschke factors in one dimension.
 We omit the proof of the theorem.
 
-Notice that $z \mapsto z^d$ is a proper map of the disk to the disk for any
+Notice that $z \mapsto z^d$ is a proper map of the disc to the disc for any
 $d \in \N$.  What happens to $z^d$ if $n \geq 2$?  Well, it is still there,
 we just need to look at tensor products and we need to allow the target
 dimension to become larger.
@@ -3078,7 +3004,7 @@ In simple terms if $f = (f_1,\ldots,f_n)$
 and $g=(g_1,\ldots,g_m)$ are mappings then,
 $f \otimes g$ means
 \begin{equation}
-f \otimes g = \oplus_{j,k=1}^n f_j g_k
+f \otimes g = \oplus_{j=1}^n \oplus_{k=1}^m f_j g_k
 \end{equation}
 
 For example, if $n=2$ and $d=2$, then $z^{\otimes 2}$
@@ -3123,7 +3049,7 @@ We define $H_{n,d}$ in a similar fashion.
 A mapping is a homogeneous polynomial of degree $d$ if $F(tz) = t^d F(z)$.
 
 \begin{thm}[Rudin '84]
-Suppose that $F \colon \bB_n \to \bB_N$ be
+If $F \colon \bB_n \to \bB_N$ is
 proper and a homogeneous polynomial of degree $d$, then $F$ is spherically
 equivalent (actually unitarily equivalent) to $H_{n,d}$.
 \end{thm}
@@ -3210,14 +3136,14 @@ monomial maps (every component is a single monomial).  Further, let us
 classify all the degree 2 monomial proper ball maps.  We will use this
 classification later.
 
-Let us start with setting up a real algebraic problem.  Let
-$F \colon \bB_n \to \bB_N$ be a proper monomial map.  That is
+We start with setting up a real-algebraic problem.  Let
+$F \colon \bB_n \to \bB_N$ be a proper monomial map.  That is,
 \begin{equation}
 \norm{F(z)}^2 = 1 \quad \text{when} \quad  \norm{z}^2  = 1.
 \end{equation}
-Not that if a component of $F$ is $z^\alpha$, then
+If a component of $F$ is $z^\alpha$, then
 the corresponding term in $\norm{F(z)}^2$ is $\abs{c z^\alpha}^2$.
-Therefore if we replace
+Therefore, if we replace
 $\abs{z_1}^2$ with $x_1$,
 $\abs{z_2}^2$ with $x_2$, etc\ldots,
 then $\abs{c z^\alpha}^2$ becomes $\sqrt{\abs{c}}\,x^\alpha$.  The form
@@ -3301,7 +3227,7 @@ $\frac{p_2}{x_1+\cdots+x_n}$ must correspond to $\sqrt{I-D^2}\,z$,
 where $I-D^2 \geq 0$.
 By a permutation matrix, we can sort the entries in $D$.
 The unitary matrix comes about because of the translation from
-the real algebraic setting back to proper mappings, possibly to account for
+the real-algebraic setting back to proper mappings, possibly to account for
 components of the map not being linearly independent.  Do note that the
 equivalence is taking into account possibly adding zero components.
 \end{proof}
@@ -3590,7 +3516,7 @@ matrix of coefficients.
 Let $f$ be
 a rational map of $\bP^{n}$ to $\bP^{N}$.  In
 homogeneous coordinates, $f$ is given by
-$n+1$ homogeneous polynomials $f = f_1,f_2,\ldots,f_{n+1}$.
+$N+1$ homogeneous polynomials $f = f_1,f_2,\ldots,f_{N+1}$.
 Let us
 formulate what it means for $f$ to take
 $\bV_J \subset \bP^{n}$ to $\bV_V \subset \bP^{N}$ for 
@@ -3674,7 +3600,7 @@ As we
 are working in homogeneous coordinates, we must also always
 consider the possibility
 $\langle V f(z) , f(z) \rangle = \lambda \langle V g(z) , g(z) \rangle$
-for $\lambda > 0$.  We can then simply $f$ or $g$ and use the proposition.
+for $\lambda > 0$.  We can then simply scale $f$ or $g$ and use the proposition.
 Note that we will only consider $V$ where the number of positive and negative
 eigenvalues are not equal.  Otherwise we would also want to consider
 maps that take $V$ to $-V$.  The $V$ we will consider defines the ball and
@@ -4143,8 +4069,7 @@ such maps are equivalent to monomial maps except for perhaps two variables.
 \sectionnewpage
 \section{Monomial degree estimates}
 
-Let us end the course with a quick tour of the degree estimates proof 
-monomial maps.
+We end the course with a quick tour of the degree estimates proof for monomial maps.
 We prove only the two dimensional case here as the three dimensional case
 is much more complicated.
 The original proof of a degree estimate in $n=2$
@@ -4447,14 +4372,13 @@ we can apply
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%FIXME: else I don't get links, weird
+%else I don't get links, weird
 %\def\MR#1{\relax\ifhmode\unskip\spacefactor3000 \space\fi%
   %\href{http://www.ams.org/mathscinet-getitem?mr=#1}{MR#1}}
 \def\myDOI#1{\href{http://dx.doi.org/#1}{#1}}
 
 
 
-%FIXME
 %\cleardoublepage  
 \clearpage
 \phantomsection
